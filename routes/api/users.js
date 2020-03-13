@@ -5,7 +5,7 @@ const { check, validationResult } = require("express-validator");
 
 const User = require("../../models/User");
 
-// @route   POSTapi/users
+// @route   POST api/users
 // @desc    Register user
 // @access  Public
 router.post(
@@ -38,6 +38,19 @@ router.post(
       }
 
       // Get users gravatar (based on their email)
+      const avatar = gravatar.url(email, {
+        s: "200", // size
+        r: "pg", //rating
+        d: "mm" // default
+      });
+
+      user = new User({
+        name,
+        email,
+        avatar,
+        password
+        // doesn't save user yet, just  creating an instance
+      });
 
       // Encrypt password (bcrypt)
 
