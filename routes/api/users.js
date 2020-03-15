@@ -42,7 +42,7 @@ router.post(
           .json({ errors: [{ msg: "User already exists" }] });
       }
 
-      // Get users gravatar (based on their email)
+      // Get users gravatar
       const avatar = gravatar.url(email, {
         s: "200", // size
         r: "pg", //rating
@@ -54,10 +54,9 @@ router.post(
         email,
         avatar,
         password
-        // doesn't save user yet, just  creating an instance
       });
 
-      // Encrypt password (bcrypt)
+      // Encrypt password
       const salt = await bcrypt.genSalt(10);
 
       user.password = await bcrypt.hash(password, salt);
@@ -76,7 +75,7 @@ router.post(
       });
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server error");
+      res.status(500).send("Server Error");
     }
   }
 );
