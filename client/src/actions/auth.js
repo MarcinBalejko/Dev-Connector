@@ -22,7 +22,7 @@ export const loadUser = () => async dispatch => {
       payload: res.data
     });
   } catch (err) {
-    dispatch({ AUTH_ERROR });
+    dispatch({ type: AUTH_ERROR });
   }
 };
 
