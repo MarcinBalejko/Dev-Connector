@@ -21,7 +21,6 @@ const AddEducation = ({ addEducation, history }) => {
     school,
     degree,
     fieldofstudy,
-    location,
     from,
     to,
     current,
