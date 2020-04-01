@@ -20,9 +20,9 @@ export const getPosts = () => async dispatch => {
 };
 
 // Add like
-export const getLike = id => async dispatch => {
+export const addLike = id => async dispatch => {
   try {
-    const res = await axios.get(`/api/posts/like/${postId}`);
+    const res = await axios.put(`/api/posts/like/${postId}`);
 
     dispatch({
       type: UPDATE_LIKES,
@@ -39,7 +39,7 @@ export const getLike = id => async dispatch => {
 // Remove like
 export const removeLike = id => async dispatch => {
   try {
-    const res = await axios.get(`/api/posts/unlike/${postId}`);
+    const res = await axios.put(`/api/posts/unlike/${postId}`);
 
     dispatch({
       type: UPDATE_LIKES,
