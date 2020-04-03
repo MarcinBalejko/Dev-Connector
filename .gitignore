@@ -2,6 +2,7 @@
 node_modules
 
 # misc
+config/default.json
 default.json
 .DS_Store
 .env.local
