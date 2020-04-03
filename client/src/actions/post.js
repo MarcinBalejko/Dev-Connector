@@ -7,6 +7,7 @@ import {
   DELETE_POST,
   ADD_POST,
   GET_POST,
+  ADD_COMMENT,
   REMOVE_COMMENT
 } from "./types";
 
