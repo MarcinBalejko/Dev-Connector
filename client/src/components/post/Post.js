@@ -23,7 +23,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
       <PostItem post={post} showActions={false} />
       <CommentForm postId={post._id} />
       <div className="comments">
-        {post.comments.map(comment => (
+        {post.comments.map((comment) => (
           <CommentItem key={comment._id} comment={comment} postId={post._id} />
         ))}
       </div>
@@ -33,11 +33,11 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
 
 Post.propTypes = {
   getPost: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  post: state.post
+const mapStateToProps = (state) => ({
+  post: state.post,
 });
 
 export default connect(mapStateToProps, { getPost })(Post);

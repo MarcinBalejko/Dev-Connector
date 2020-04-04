@@ -8,8 +8,8 @@ const ProfileTop = ({
     location,
     website,
     social,
-    user: { name, avatar }
-  }
+    user: { name, avatar },
+  },
 }) => {
   return (
     <div className="profile-top bg-primary p-2">
@@ -56,7 +56,7 @@ const ProfileTop = ({
 };
 
 ProfileTop.propTypes = {
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
 export default ProfileTop;

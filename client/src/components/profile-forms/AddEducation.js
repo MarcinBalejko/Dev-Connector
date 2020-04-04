@@ -12,7 +12,7 @@ const AddEducation = ({ addEducation, history }) => {
     from: "",
     to: "",
     current: false,
-    description: ""
+    description: "",
   });
 
   const [toDateDisabled, toggleDisabled] = useState(false);
@@ -24,10 +24,10 @@ const AddEducation = ({ addEducation, history }) => {
     from,
     to,
     current,
-    description
+    description,
   } = formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
@@ -40,7 +40,7 @@ const AddEducation = ({ addEducation, history }) => {
       <small>* = required field</small>
       <form
         className="form"
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
           addEducation(formData, history);
         }}
@@ -51,7 +51,7 @@ const AddEducation = ({ addEducation, history }) => {
             placeholder="* School or Bootcamp"
             name="school"
             value={school}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
             required
           />
         </div>
@@ -61,7 +61,7 @@ const AddEducation = ({ addEducation, history }) => {
             placeholder="* Degree or Certificate"
             name="degree"
             value={degree}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
             required
           />
         </div>
@@ -71,7 +71,7 @@ const AddEducation = ({ addEducation, history }) => {
             placeholder="Field of Study"
             name="fieldofstudy"
             value={fieldofstudy}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div className="form-group">
@@ -80,7 +80,7 @@ const AddEducation = ({ addEducation, history }) => {
             type="date"
             name="from"
             value={from}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div className="form-group">
@@ -104,7 +104,7 @@ const AddEducation = ({ addEducation, history }) => {
             type="date"
             name="to"
             value={to}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
             disabled={toDateDisabled ? "disabled" : ""}
           />
         </div>
@@ -115,7 +115,7 @@ const AddEducation = ({ addEducation, history }) => {
             rows="5"
             placeholder="Program Description"
             value={description}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <input type="submit" className="btn btn-primary my-1" />
@@ -128,7 +128,7 @@ const AddEducation = ({ addEducation, history }) => {
 };
 
 AddEducation.propTypes = {
-  addEducation: PropTypes.func.isRequired
+  addEducation: PropTypes.func.isRequired,
 };
 
 export default connect(null, { addEducation })(withRouter(AddEducation));
