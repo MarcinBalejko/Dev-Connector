@@ -12,14 +12,14 @@ const AddExperience = ({ addExperience, history }) => {
     from: "",
     to: "",
     current: false,
-    description: ""
+    description: "",
   });
 
   const [toDateDisabled, toggleDisabled] = useState(false);
 
   const { company, title, location, from, to, current, description } = formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
@@ -32,7 +32,7 @@ const AddExperience = ({ addExperience, history }) => {
       <small>* = required field</small>
       <form
         className="form"
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
           addExperience(formData, history);
         }}
@@ -43,7 +43,7 @@ const AddExperience = ({ addExperience, history }) => {
             placeholder="* Job Title"
             name="title"
             value={title}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
             required
           />
         </div>
@@ -53,7 +53,7 @@ const AddExperience = ({ addExperience, history }) => {
             placeholder="* Company"
             name="company"
             value={company}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
             required
           />
         </div>
@@ -63,7 +63,7 @@ const AddExperience = ({ addExperience, history }) => {
             placeholder="Location"
             name="location"
             value={location}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div className="form-group">
@@ -72,7 +72,7 @@ const AddExperience = ({ addExperience, history }) => {
             type="date"
             name="from"
             value={from}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div className="form-group">
@@ -96,7 +96,7 @@ const AddExperience = ({ addExperience, history }) => {
             type="date"
             name="to"
             value={to}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
             disabled={toDateDisabled ? "disabled" : ""}
           />
         </div>
@@ -107,7 +107,7 @@ const AddExperience = ({ addExperience, history }) => {
             rows="5"
             placeholder="Job Description"
             value={description}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <input type="submit" className="btn btn-primary my-1" />
@@ -120,7 +120,7 @@ const AddExperience = ({ addExperience, history }) => {
 };
 
 AddExperience.propTypes = {
-  addExperience: PropTypes.func.isRequired
+  addExperience: PropTypes.func.isRequired,
 };
 
 export default connect(null, { addExperience })(withRouter(AddExperience));
