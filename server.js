@@ -1,15 +1,17 @@
 const express = require("express");
 const connectDB = require("./config/db");
-// const PORT = process.env.PORT || 5000;
+const dotenv = require("dotenv");
 const path = require("path");
 
 const app = express();
+
+dotenv.config();
 
 // Connect Database
 connectDB();
 
 // Init Middleware
-app.use(express.json({ extended: false }));
+app.use(express.json());
 
 // Define Routes
 app.use("/api/users", require("./routes/api/users"));
